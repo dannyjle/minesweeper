@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 export class App extends Component {
   state = {
-    data: [
+    id: 1,
+    board: [
       ['', '', '', '', '', '', '', ''],
       ['', '', '', '', '', '', '', ''],
       ['', '', '', '', '', '', '', ''],
@@ -12,14 +13,19 @@ export class App extends Component {
       ['', '', '', '', '', '', '', ''],
       ['', '', '', '', '', '', '', ''],
     ],
+    state: 'new',
+    mines: 10,
   }
 
   render() {
     return (
       <div>
-        <h1>Minesweeper!</h1>
+        <h1>
+          Minesweeper!
+          <button>New Game</button>
+        </h1>
         <ul>
-          {this.state.data.map(function (row) {
+          {this.state.board.map(function (row) {
             return row.map(function (cell, columnIndex) {
               return <li key={columnIndex}>{cell}</li>
             })
