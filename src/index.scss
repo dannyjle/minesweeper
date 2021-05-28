@@ -1,14 +1,14 @@
 :root {
   /* CSS Variables for all the font colors and sizes. Try changing these! */
-  background: #7a3131;
-  --header-text-color: #fff9c2;
+  background: #000000;
+  --header-text-color: #00a2ff;
   --header-font-size: 2rem;
-  --square-font-size: calc(8 * var(--header-font-size));
-  --square-text-color: #7a3131;
-  --square-background-color: #fff9c2;
+  // --square-font-size: calc(8 * var(--header-font-size));
+  --square-text-color: #000000;
+  --square-background-color: #000000;
   --square-border: 3px solid var(--square-text-color);
 
-  font: 16px / 1 sans-serif;
+  font: 10px / 1 Verdana, sans-serif;
 }
 
 html {
@@ -17,7 +17,7 @@ html {
 
 body {
   margin: 0;
-  min-height: 100%;
+  max-height: 100%;
 }
 
 h1 {
@@ -25,7 +25,7 @@ h1 {
   text-align: center;
 
   /* Use a sans serif font with a little spacing and color */
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, sans-serif;
   letter-spacing: 0.4rem;
   font-size: var(--header-font-size);
   color: var(--header-text-color);
@@ -38,6 +38,12 @@ h1 {
   background-color: var(--header-background);
 }
 
+// @media all and (max-width: 600px) {
+//   ul {
+//     margin-right: 5rem;
+//   }
+// }
+
 ul,
 li {
   margin: 1px;
@@ -46,33 +52,50 @@ li {
 }
 
 ul {
+  /* Make the height of the list equal to the height of the page MINUS the height taken by the header */
   height: calc(75vh - 3 * var(--header-font-size));
+
+  /* Display the list as a 3 column and three row grid */
   display: grid;
   grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
-  gap: 0;
+  /* Add a little gap between to allow the background color through */
+  gap: 0px;
+
+  /* Set the background color that will show through the gap */
   background-color: var(--square-text-color);
 }
 
 ul li {
+  /* Use a monospace font */
   font-family: monospace;
-  font-size: var(--square-font-size);
+
+  /* Style the background color of the item */
   background-color: var(--square-background-color);
+
+  /* Make the cursor a pointer by default */
   cursor: pointer;
+
+  /* Center the text in the LI */
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 1s font-size ease-in-out;
 }
 
-ul li.taken {
-  cursor: not-allowed;
+li.numberCell {
+  color: black;
+  background-color: white;
 }
 
-ul li.small {
-  font-size: 4rem;
+li.fireCell {
+  background-color: rgb(141, 14, 14);
 }
 
-ul li.not-allowed-click {
-  background-color: red;
+li.waterCell {
+  background-color: rgb(26, 137, 211);
+}
+
+li.blankCell {
+  background-color: rgb(31, 92, 18);
 }
